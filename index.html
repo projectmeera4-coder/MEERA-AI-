@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080d22">
+<meta name="description" content="MERA AI — आपका स्मार्ट साथी">
+<link rel="manifest" href="manifest.json">
+<title>MERA AI</title>
+<style>
+:root{--bg:#080d22;--panel:#111a36;--violet:#8b5cf6;--cyan:#22d3ee;--muted:#b9c5e5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1b2455 0,#080d22 55%);color:#fff;font-family:system-ui,-apple-system,sans-serif;min-height:100vh}
+main{max-width:650px;margin:auto;padding:18px 16px 32px}.top{display:flex;align-items:center;gap:12px;margin:8px 0 20px}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;font-size:25px;font-weight:900;box-shadow:0 0 24px #8b5cf655}.brand{font-size:24px;font-weight:850;letter-spacing:1px}.sub{color:var(--muted);font-size:12px}.pill{margin-left:auto;border:1px solid #22d3ee66;border-radius:20px;padding:7px 10px;color:#8eeeff;font-size:11px}
+.hero,.card{background:linear-gradient(160deg,#18234a,#10172e);border:1px solid #8b5cf666;border-radius:24px;padding:20px;box-shadow:0 12px 35px #0003}
+.hero{text-align:center}.orb{width:108px;height:108px;border-radius:50%;margin:2px auto 15px;display:grid;place-items:center;font-size:44px;background:radial-gradient(circle,#3648a9,#172451 60%,#10172e);border:2px solid var(--cyan);box-shadow:0 0 25px #22d3ee55, inset 0 0 20px #8b5cf655}.hero h1{font-size:22px;margin:4px}.hero p{color:var(--muted);font-size:13px}.primary{background:linear-gradient(100deg,var(--violet),#4f46e5);border:0;color:#fff;border-radius:28px;padding:13px 18px;font-size:15px;font-weight:750;box-shadow:0 5px 22px #8b5cf644}
+.section-title{font-weight:800;font-size:17px;margin:22px 2px 10px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile{background:#111a36;border:1px solid #6474bb55;color:white;border-radius:18px;padding:14px 10px;text-align:left;min-height:94px;font-size:14px;font-weight:700}.tile span{display:block;font-size:25px;margin-bottom:7px}.tile small{display:block;color:var(--muted);font-size:11px;font-weight:400;margin-top:3px}.chat{margin-top:10px}.bubble{background:#0b1229;border-radius:16px;padding:12px;margin:10px 0;color:#f4f6ff;line-height:1.5;font-size:14px;white-space:pre-wrap}.bubble.ai{border:1px solid #8b5cf655}.inputrow{display:flex;gap:8px;margin-top:12px}.inputrow input{min-width:0;flex:1;background:#080d22;border:1px solid #6876b9;border-radius:15px;padding:12px;color:white;font-size:14px}.send{border:0;background:var(--violet);color:white;border-radius:14px;padding:0 15px;font-size:17px}.foot{text-align:center;color:#8f9bc0;font-size:11px;margin-top:20px}.note{color:var(--muted);font-size:11px;line-height:1.5;margin-top:12px}
+</style>
+</head>
+<body><main>
+<header class="top"><div class="logo">M</div><div><div class="brand">MERA AI</div><div class="sub">Your Smart AI Companion</div></div><div class="pill">✦ VOICE FIRST</div></header>
+<section class="hero"><div class="orb">🎙️</div><h1>नमस्ते! मैं हूँ Mera 💜</h1><p id="status">आपकी मदद के लिए तैयार हूँ</p><button class="primary" id="speakBtn">🎤 बोलकर पूछें</button><p class="sub">बोलिए कम, कीजिए ज़्यादा</p></section>
+<div class="section-title">आपकी स्मार्ट सुविधाएँ</div>
+<section class="grid">
+<button class="tile" data-action="camera"><span>📸</span>कैमरा<small>कैमरा खोलें</small></button>
+<button class="tile" data-action="youtube"><span>▶️</span>YouTube<small>गाने और वीडियो खोजें</small></button>
+<button class="tile" data-action="alarm"><span>⏰</span>अलार्म<small>सुबह 5 बजे सेट करने में मदद</small></button>
+<button class="tile" data-action="weather"><span>🌤️</span>मौसम<small>आज का मौसम खोजें</small></button>
+<button class="tile" data-action="maps"><span>🗺️</span>रास्ता / Maps<small>जगह और रास्ता खोजें</small></button>
+<button class="tile" data-action="whatsapp"><span>💬</span>WhatsApp<small>WhatsApp खोलें</small></button>
+</section>
+<div class="section-title">Mera से बात करें</div>
+<section class="card chat">
+<div class="bubble ai" id="reply">नमस्ते! मैं आपका स्मार्ट साथी हूँ। नीचे सवाल लिखें या आवाज़ से पूछें।</div>
+<div class="inputrow"><input id="question" placeholder="यहाँ लिखें…"><button class="send" id="sendBtn" aria-label="भेजें">➤</button></div>
+<div class="note">यह मोबाइल वेब ऐप का शुरुआती डेमो है। असली AI जवाब, स्थायी मेमोरी और “Hey Mera” बैकग्राउंड वेक-वर्ड के लिए आगे सर्वर/ऐप इंटीग्रेशन चाहिए।</div>
+</section>
+<div class="foot">MERA AI • Smart • Helpful • Caring</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function say(text){$('reply').textContent=text; $('status').textContent='आपकी मदद के लिए तैयार हूँ'; if('speechSynthesis' in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='hi-IN';speechSynthesis.speak(u)}}
+function answer(q){let s=q.toLowerCase();
+ if(s.includes('नमस्ते')||s.includes('hello')||s==='hi')return 'नमस्ते! 💜 बताइए, आज क्या सीखना या करना चाहते हैं?';
+ if(s.includes('मोटिवेशन')||s.includes('परेशान')||s.includes('डर'))return 'आप अकेले नहीं हैं। चलिए समस्या को छोटे कदमों में बाँटते हैं। अभी सबसे कठिन बात क्या लग रही है?';
+ if(s.includes('कोड')||s.includes('coding'))return 'कोडिंग में मदद करूँगा। अपना सवाल, भाषा या कोड यहाँ लिखें।';
+ if(s.includes('अलार्म')||s.includes('5 बजे'))return 'अलार्म के लिए नीचे “अलार्म” बटन दबाएँ। आपका फोन अलार्म ऐप खोलेगा जहाँ समय की पुष्टि करें।';
+ if(s.includes('मौसम'))return 'मौसम देखने के लिए “मौसम” कार्ड दबाएँ। यह वेब पर मौसम खोजेगा।';
+ return 'मैं आपकी मदद करने की कोशिश करूँगा। यह अभी डेमो है; असली AI मॉडल जोड़ने पर मैं खुले सवालों के बेहतर जवाब दे सकूँगा।';
+}
+function submit(){let q=$('question').value.trim();if(!q)return;say(answer(q))}
+$('sendBtn').addEventListener('click',submit);$('question').addEventListener('keydown',e=>{if(e.key==='Enter')submit()});
+$('speakBtn').addEventListener('click',()=>{
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){$('status').textContent='इस ब्राउज़र में आवाज़ पहचान उपलब्ध नहीं है। लिखकर पूछें।';return}
+ let r=new SR();r.lang='hi-IN';r.interimResults=false;r.onstart=()=>$('status').textContent='सुन रहा हूँ…';r.onresult=e=>{let q=e.results[0][0].transcript;$('question').value=q;say(answer(q))};r.onerror=()=>$('status').textContent='आवाज़ नहीं मिली। फिर कोशिश करें।';r.start();
+});
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{
+ const a=b.dataset.action;
+ if(a==='youtube')location.href='https://www.youtube.com/results?search_query='+encodeURIComponent($('question').value||'Hindi songs');
+ if(a==='weather')location.href='https://www.google.com/search?q='+encodeURIComponent('आज का मौसम');
+ if(a==='maps')location.href='https://www.google.com/maps/search/'+encodeURIComponent($('question').value||'nearby places');
+ if(a==='whatsapp')location.href='https://wa.me/';
+ if(a==='camera'){let i=document.createElement('input');i.type='file';i.accept='image/*';i.capture='environment';i.onchange=()=>{if(i.files.length)say('फोटो चुनी गई है। इस डेमो में फोटो का AI विश्लेषण अभी चालू नहीं है।')};i.click()}
+ if(a==='alarm'){say('आपके फोन का अलार्म ऐप खोलने की कोशिश कर रहा हूँ। अगर न खुले तो Clock ऐप खोलकर सुबह 5 बजे का अलार्म लगाएँ।');location.href='intent://set_alarm?hour=5&minutes=0#Intent;scheme=android.intent.action;end'}
+}));
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body></html>

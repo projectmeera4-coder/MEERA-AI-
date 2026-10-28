@@ -1,0 +1,9 @@
+{
+  "name": "MERA AI",
+  "short_name": "MERA AI",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080d22",
+  "theme_color": "#080d22",
+  "description": "आपका स्मार्ट AI साथी"
+}
